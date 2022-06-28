@@ -1,0 +1,17 @@
+library(tree)
+###decision tree
+data(iris)
+head(iris)
+TR1 = tree(Species ~ Sepal.Length + 
+             Sepal.Width + Petal.Length + 
+             Petal.Width, iris)
+summary(TR1)
+plot(TR1);text(TR1)
+predict(TR1,iris[1:6,])
+####
+data(mtcars)
+mtcars[1:3,]
+TR2=tree(mpg~cyl+disp+hp+drat+wt+gear,mtcars)
+plot(TR2);text(TR2)
+as.data.frame(predict(TR2,mtcars[1:10,]))
+predict(TR2,mtcars[1:10,])
